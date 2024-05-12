@@ -60,7 +60,7 @@ export default function Home() {
     return (
         <div>
             <Backdrop movie={ movie }/>
-            <AuroraBackground className="flex grow w-screen h-screen justify-start overflow-y-auto">
+            <AuroraBackground className="flex grow w-screen h-screen justify-start overflow-y-scroll">
                 <header className="flex justify-around w-full z-10 my-6">
                     <h1 className="text-2xl font-bold">RandoMovie</h1>
                     <div className="flex gap-4">
@@ -103,7 +103,7 @@ export default function Home() {
 function MovieDetails({movie, loading}: { movie: Movie, setMovie: (movie: Movie) => void, loading: boolean, setLoading: (loading: boolean) => void }) {
     return loading ? (
         <div className="text-center flex-col gap-4 justify-center items-center flex max-w-full">
-            <Skeleton className="w-[300px] h-[450px] m-auto max-w-screen-lg"/>
+            <Skeleton className="w-[300px] h-[450px]"/>
             <Skeleton className="w-80 h-8 mt-4"/>
             <div className="flex flex-col gap-2">
                 <Skeleton className="w-[42rem] h-32  max-w-full"/>
