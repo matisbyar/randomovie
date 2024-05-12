@@ -59,7 +59,7 @@ export default function Home() {
 
     return (
         <div>
-            <Backdrop movie={ movie } loading={ loading }/>
+            <Backdrop movie={ movie }/>
             <AuroraBackground className="w-screen h-screen justify-start">
                 <header className="flex justify-around w-full z-10 my-6">
                     <h1 className="text-2xl font-bold">RandoMovie</h1>
@@ -110,7 +110,7 @@ function MovieDetails({movie, loading}: { movie: Movie, setMovie: (movie: Movie)
             </div>
         </div>
     ) : movie ? (
-        <div className="text-center flex flex-col gap-4">
+        <div className="text-center flex flex-col gap-4 mb-12">
             <Image
                 src={ `https://image.tmdb.org/t/p/w500${ movie.poster_path }` }
                 width={ 300 }
@@ -155,13 +155,12 @@ function MovieDetails({movie, loading}: { movie: Movie, setMovie: (movie: Movie)
     );
 }
 
-function Backdrop({movie, loading}: { movie: Movie, loading: boolean }) {
+function Backdrop({movie}: { movie: Movie }) {
     return (
         <>
-            { loading && <Skeleton className="absolute top-0 left-0 w-screen h-screen blur-[25px] transition-all duration-2000 z-9"/> }
             { movie?.backdrop_path && (
                 <TransitionalImage src={ `https://image.tmdb.org/t/p/w500${ movie.backdrop_path }` }
-                                   className={ `absolute top-0 left-0 w-screen h-screen z-9 blur-[25px]` }
+                                   className="absolute top-0 left-0 w-full z-9 blur-[25px] md:h-screen h-full"
                                    alt={ movie.title || "Current movie backdrop" }
                                    width={ 1920 }
                                    height={ 1080 }
