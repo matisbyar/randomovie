@@ -102,11 +102,11 @@ export default function Home() {
 
 function MovieDetails({movie, loading}: { movie: Movie, setMovie: (movie: Movie) => void, loading: boolean, setLoading: (loading: boolean) => void }) {
     return loading ? (
-        <div className="text-center flex flex-col gap-4">
-            <Skeleton className="w-[300px] h-[450px] m-auto"/>
+        <div className="text-center flex-col gap-4 justify-center items-center flex max-w-full">
+            <Skeleton className="w-[300px] h-[450px] m-auto max-w-screen-lg"/>
             <Skeleton className="w-80 h-8 mt-4"/>
             <div className="flex flex-col gap-2">
-                <Skeleton className="w-[42rem] h-32"/>
+                <Skeleton className="w-[42rem] h-32  max-w-full"/>
             </div>
         </div>
     ) : movie ? (
@@ -122,7 +122,7 @@ function MovieDetails({movie, loading}: { movie: Movie, setMovie: (movie: Movie)
                 <span className="text-3xl text-gray-800 dark:text-gray-200">{ movie.title }</span>
                 { movie.title !== movie.original_title && (
                     <div>
-                        <span className="text-lg text-gray-800 dark:text-gray-200">{ `${ getCountryFlag(movie.original_language.toUpperCase()) } ${ movie.original_title }` }</span>
+                        <span className="text-lg text-gray-800 dark:text-gray-200 text-center flex">{ `${ getCountryFlag(movie.original_language.toUpperCase()) } ${ movie.original_title }` }</span>
                     </div>
                 ) }
                 <div className="flex flex-wrap gap-2">
