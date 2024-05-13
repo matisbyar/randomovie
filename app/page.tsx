@@ -126,7 +126,7 @@ function MovieDetails({movie, loading}: { movie: Movie, setMovie: (movie: Movie)
                     </div>
                 ) }
                 <div className="flex flex-wrap gap-2">
-                    <Badge>{new Date(movie.release_date).toLocaleString(undefined,{ month: 'long', day: 'numeric', year: 'numeric' })}</Badge>
+                    <Badge>{ new Date(movie.release_date).toLocaleString(undefined, {month: 'long', day: 'numeric', year: 'numeric'}) }</Badge>
                     <Badge>{ movie.runtime } min</Badge>
                 </div>
             </h2>
