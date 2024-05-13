@@ -60,41 +60,43 @@ export default function Home() {
     return (
         <div>
             <Backdrop movie={ movie }/>
-            <AuroraBackground className="flex grow w-screen h-screen justify-start overflow-y-scroll">
-                <header className="flex justify-around w-full z-10 my-6">
-                    <h1 className="text-2xl font-bold">RandoMovie</h1>
-                    <div className="flex gap-4">
-                        <div>
-                            <TooltipProvider>
-                                <Tooltip>
-                                    <TooltipContent>Previous movie</TooltipContent>
-                                    <TooltipTrigger asChild>
-                                        <Button variant="ghost"
-                                                disabled={ index === 0 }
-                                                onClick={ handlePreviousMovie }
-                                                className="rounded-r-none"><CaretLeftIcon/></Button>
-                                    </TooltipTrigger>
-                                </Tooltip>
-                            </TooltipProvider>
-                            <TooltipProvider>
-                                <Tooltip>
-                                    <TooltipContent>Next movie</TooltipContent>
-                                    <TooltipTrigger asChild>
-                                        <Button variant="ghost"
-                                                disabled={ index >= history.length - 1 }
-                                                onClick={ handleNextMovie }
-                                                className="rounded-l-none"><CaretRightIcon/></Button>
-                                    </TooltipTrigger>
-                                </Tooltip>
-                            </TooltipProvider>
-                        </div>
+            <AuroraBackground>
+                <div className="flex flex-col grow w-screen h-screen justify-start items-center overflow-y-scroll">
+                    <header className="flex justify-around w-full z-10 my-6">
+                        <h1 className="text-2xl font-bold">RandoMovie</h1>
+                        <div className="flex gap-4">
+                            <div>
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipContent>Previous movie</TooltipContent>
+                                        <TooltipTrigger asChild>
+                                            <Button variant="ghost"
+                                                    disabled={ index === 0 }
+                                                    onClick={ handlePreviousMovie }
+                                                    className="rounded-r-none"><CaretLeftIcon/></Button>
+                                        </TooltipTrigger>
+                                    </Tooltip>
+                                </TooltipProvider>
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipContent>Next movie</TooltipContent>
+                                        <TooltipTrigger asChild>
+                                            <Button variant="ghost"
+                                                    disabled={ index >= history.length - 1 }
+                                                    onClick={ handleNextMovie }
+                                                    className="rounded-l-none"><CaretRightIcon/></Button>
+                                        </TooltipTrigger>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            </div>
 
-                        <Button onClick={ handleGetAnotherMovie } disabled={ loading }><ReloadIcon/></Button>
-                    </div>
-                </header>
-                <main className="flex flex-col justify-center w-[90%] md:max-w-2xl z-10">
-                    <MovieDetails movie={ movie } setMovie={ setMovie } loading={ loading } setLoading={ setLoading }/>
-                </main>
+                            <Button onClick={ handleGetAnotherMovie } disabled={ loading }><ReloadIcon/></Button>
+                        </div>
+                    </header>
+                    <main className="flex flex-col justify-center w-[90%] md:max-w-2xl z-10">
+                        <MovieDetails movie={ movie } setMovie={ setMovie } loading={ loading } setLoading={ setLoading }/>
+                    </main>
+                </div>
             </AuroraBackground>
         </div>
     );
