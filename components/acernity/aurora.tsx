@@ -1,31 +1,20 @@
 "use client";
 import { cn } from "@/lib/utils";
 import React, { ReactNode } from "react";
-import { TransitionalImage } from "@/components/custom/TransitionalImage";
 
 interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
     children: ReactNode;
     showRadialGradient?: boolean;
-    movie?: any;
 }
 
 export const AuroraBackground = ({
                                      className,
                                      children,
-                                     movie = "",
                                      showRadialGradient = true,
                                      ...props
                                  }: AuroraBackgroundProps) => {
     return (
         <main>
-            { movie?.backdrop_path && (
-                <TransitionalImage src={ `https://image.tmdb.org/t/p/w500${ movie.backdrop_path }` }
-                                   className="absolute top-0 left-0 w-full z-9 blur-[25px] md:h-screen h-full flex grow"
-                                   alt={ movie.title || "Current movie backdrop" }
-                                   width={ 1920 }
-                                   height={ 1080 }
-                />
-            ) }
             <div
                 className={ cn(
                     "relative flex flex-col h-full items-center justify-center bg-slate-50 bg-opacity-50 dark:bg-slate-800 text-slate-950 transition-bg overflow-y-hidden",
