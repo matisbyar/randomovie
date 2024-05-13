@@ -59,8 +59,7 @@ export default function Home() {
 
     return (
         <div>
-            <Backdrop movie={ movie }/>
-            <AuroraBackground className="flex grow w-screen h-screen justify-start overflow-y-scroll">
+            <AuroraBackground className="flex grow w-screen h-screen justify-start overflow-y-scroll" movie={movie}>
                 <header className="flex justify-around w-full z-10 my-6">
                     <h1 className="text-2xl font-bold">RandoMovie</h1>
                     <div className="flex gap-4">
