@@ -61,7 +61,7 @@ export default function Home() {
         <div>
             <Backdrop movie={ movie }/>
             <AuroraBackground>
-                <div className="flex flex-col grow w-screen h-screen justify-start items-center overflow-y-scroll">
+                <div className="flex flex-col grow w-screen justify-start items-center overflow-y-scroll h-[100svh]">
                     <header className="flex justify-around w-full z-10 my-6">
                         <h1 className="text-2xl font-bold">RandoMovie</h1>
                         <div className="flex gap-4">
@@ -162,7 +162,7 @@ function Backdrop({movie}: { movie: Movie }) {
         <>
             { movie?.backdrop_path && (
                 <TransitionalImage src={ `https://image.tmdb.org/t/p/w500${ movie.backdrop_path }` }
-                                   className="absolute top-0 left-0 w-full z-9 blur-[25px] md:h-screen h-full flex grow"
+                                   className="absolute top-0 left-0 w-full z-9 blur-[25px] flex grow"
                                    alt={ movie.title || "Current movie backdrop" }
                                    width={ 1920 }
                                    height={ 1080 }
